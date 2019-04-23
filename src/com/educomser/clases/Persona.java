@@ -1,5 +1,7 @@
 package com.educomser.clases;
 
+import java.util.Scanner;
+
 /**
  *
  * @author alumno
@@ -92,9 +94,22 @@ public class Persona {
     public void mostrarDatosPersona() {
         System.out.println("-- REPORTE DE PERSONA --");
         System.out.println("Cedula: " + getCedula());
-        System.out.println("Nombre: " + getNombre());   
+        System.out.println("Nombre: " + getNombre());
         System.out.println("Edad: " + getEdad());
         System.out.println("Genero: " + getGenero());
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "cedula=" + cedula + ", nombre=" + nombre + ", edad=" + edad + ", genero=" + genero + '}';
+    }
+
+    public void leerDatosPersona() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Ingrese cedula: ");
+        cedula=in.next();
+        System.out.println("Ingrese nombre: ");
+        nombre=in.next();
     }
 
 }

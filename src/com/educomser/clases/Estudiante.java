@@ -1,5 +1,7 @@
 package com.educomser.clases;
 
+import java.util.Scanner;
+
 public class Estudiante extends Persona {
 
     private int nota1;
@@ -58,6 +60,17 @@ public class Estudiante extends Persona {
         System.out.println("nota1: " + nota1);
         System.out.println("nota2: " + nota2);
         System.out.println("nota3: " + nota3);
+    }
+
+    void leerDatosEstudiante() {
+        super.leerDatosPersona();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Ingrese nota 1: ");
+        nota1=in.nextInt();
+        System.out.println("Ingrese nota 2: ");
+        nota2=in.nextInt();
+        System.out.println("Ingrese nota 3: ");
+        nota3=in.nextInt();
     }
 
 }
