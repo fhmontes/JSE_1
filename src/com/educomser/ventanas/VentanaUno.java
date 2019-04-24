@@ -5,12 +5,16 @@
  */
 package com.educomser.ventanas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alumno
  */
 public class VentanaUno extends javax.swing.JFrame {
 
+    private int valorA, valorB;
+    
     /**
      * Creates new form VentanaUno
      */
@@ -34,6 +38,7 @@ public class VentanaUno extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btnSumar = new javax.swing.JButton();
+        btnResta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +58,13 @@ public class VentanaUno extends javax.swing.JFrame {
             }
         });
 
+        btnResta.setText("Restar");
+        btnResta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -65,10 +77,11 @@ public class VentanaUno extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSumar, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtValorA)
-                        .addComponent(txtValorB, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtValorA)
+                    .addComponent(txtValorB, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnResta, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                .addGap(94, 94, 94))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,7 +94,9 @@ public class VentanaUno extends javax.swing.JFrame {
                     .addComponent(txtValorB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSumar))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSumar)
+                    .addComponent(btnResta)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -112,12 +127,28 @@ public class VentanaUno extends javax.swing.JFrame {
 
     private void btnSumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumarActionPerformed
         System.out.println("Haciendo clic en sumar...");
-        int valorA = Integer.parseInt(txtValorA.getText());
-        int valorB = Integer.parseInt(txtValorB.getText());
+        // int valorA = Integer.parseInt(txtValorA.getText());
+        // int valorB = Integer.parseInt(txtValorB.getText());
+        leerDatos();
         int c = valorA + valorB;
+        JOptionPane.showMessageDialog(null, "La suma es "+c);
         System.out.println("Suma: " + c);
     }//GEN-LAST:event_btnSumarActionPerformed
 
+    private void btnRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaActionPerformed
+        System.out.println("Haciendo clic en restar...");
+        // int valorA = Integer.parseInt(txtValorA.getText());
+        // int valorB = Integer.parseInt(txtValorB.getText());
+        leerDatos();
+        int c = valorA - valorB;
+        JOptionPane.showMessageDialog(null, "La resta es "+c);
+        System.out.println("Resta: " + c);
+    }//GEN-LAST:event_btnRestaActionPerformed
+
+    private void leerDatos(){
+        valorA = Integer.parseInt(txtValorA.getText());
+        valorB = Integer.parseInt(txtValorB.getText());
+    }
     /**
      * @param args the command line arguments
      */
@@ -154,6 +185,7 @@ public class VentanaUno extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnResta;
     private javax.swing.JButton btnSumar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
